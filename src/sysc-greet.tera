@@ -1,0 +1,23 @@
+---
+whiskers:
+  version: ^2.5.1
+  matrix:
+    - flavor
+    - accent
+  filename: ../themes/{{ flavor.identifier }}-{{ accent }}.toml
+  hex_format: "#{{r}}{{g}}{{b}}"
+---
+name = "Catppuccin {{ flavor.name }}"
+
+[colors]
+bg_base         = "{{ base.hex }}"
+bg_active       = "{{ overlay0.hex }}"
+primary         = "{{ green.hex }}"
+secondary       = "{{ surface0.hex }}"
+accent          = "{{ flavor.colors[accent].hex }}"
+warning         = "{{ peach.hex }}"
+danger          = "{{ red.hex }}"
+fg_primary      = "{{ base.hex }}"
+fg_secondary    = "{{ text.hex }}"
+fg_muted        = "{{ subtext0.hex }}"
+border_focus    = "{{ mauve.hex }}"

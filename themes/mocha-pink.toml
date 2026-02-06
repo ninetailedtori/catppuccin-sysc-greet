@@ -1,0 +1,14 @@
+name = "Catppuccin Mocha"
+
+[colors]
+bg_base         = "#1e1e2e"
+bg_active       = "#6c7086"
+primary         = "#a6e3a1"
+secondary       = "#313244"
+accent          = "#f5c2e7"
+warning         = "#fab387"
+danger          = "#f38ba8"
+fg_primary      = "#1e1e2e"
+fg_secondary    = "#cdd6f4"
+fg_muted        = "#a6adc8"
+border_focus    = "#cba6f7"

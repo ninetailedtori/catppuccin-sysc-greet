@@ -1,0 +1,14 @@
+name = "Catppuccin Macchiato"
+
+[colors]
+bg_base         = "#24273a"
+bg_active       = "#6e738d"
+primary         = "#a6da95"
+secondary       = "#363a4f"
+accent          = "#c6a0f6"
+warning         = "#f5a97f"
+danger          = "#ed8796"
+fg_primary      = "#24273a"
+fg_secondary    = "#cad3f5"
+fg_muted        = "#a5adcb"
+border_focus    = "#c6a0f6"

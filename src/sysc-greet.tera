@@ -7,7 +7,7 @@ whiskers:
   filename: ../themes/{{ flavor.identifier }}/{{ accent }}.toml
   hex_format: "#{{r}}{{g}}{{b}}"
 ---
-name = "Catppuccin {{ flavor.name }}"
+name = "Catppuccin {{ flavor.name }} {{ accent }}"
 
 [colors]
 bg_base         = "{{ base.hex }}"

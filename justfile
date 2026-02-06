@@ -14,6 +14,8 @@ package: package-themes package-wallpapers
 
 package-themes: compress-themes
 
+compress: compress-themes compress-wallpapers
+
 compress-themes:
     tar -I 'xz -T0 -c -z --best -' -cf 'package/sysc-greet-themes-latte.tar.xz' 'themes/latte/'
     tar -I 'xz -T0 -c -z --best -' -cf 'package/sysc-greet-themes-frappe.tar.xz' 'themes/frappe/'

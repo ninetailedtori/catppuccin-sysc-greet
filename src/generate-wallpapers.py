@@ -46,6 +46,7 @@ def load_custom_themes():
     if tomllib is None:
         return {}
 
+    # Add extra themes here to load them into the dictionary as well!
     custom_themes = {}
     theme_dirs = [
         "themes/latte",

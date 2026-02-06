@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+
 """
 Generate sysc-greet theme wallpapers from SYSC ASCII art.
 Uses Pillow to render ASCII art onto themed backgrounds.
@@ -21,8 +22,12 @@ except ImportError:
     except ImportError:
         tomllib = None
 
-# Theme definitions: name -> (bg_color, text_color)
+# Theme definitions: name -> (bg_color, accent_color)
 THEMES = {
+    "catppuccin-latte": ("#eff1f5", "#4c4f69"),
+    "catppuccin-frappe": ("#303446", "#c6d0f5"),
+    "catppuccin-macchiato": ("#24273a", "#cad3f5"),
+    "catppuccin-mocha": ("#1e1e2e", "#cdd6f4")
 }
 
 # Image dimensions (3840x2160 for 4K UHD - scales down nicely to all displays)
@@ -43,10 +48,10 @@ def load_custom_themes():
 
     custom_themes = {}
     theme_dirs = [
-        "../themes/latte",
-        "../themes/frappe",
-        "../themes/macchiato",
-        "../themes/mocha"
+        "themes/latte",
+        "themes/frappe",
+        "themes/macchiato",
+        "themes/mocha"
     ]
 
     for theme_dir in theme_dirs:
@@ -61,11 +66,11 @@ def load_custom_themes():
                 name = data.get("name", os.path.basename(toml_path).replace(".toml", ""))
                 colors = data.get("colors", {})
                 bg_color = colors.get("bg_base", "#1a1a1a")
-                text_color = colors.get("primary", "#ffffff")
+                accent_color = colors.get("accent", "primary")
 
                 # Use lowercase name for consistency
                 theme_key = name.lower().replace(" ", "-")
-                custom_themes[theme_key] = (bg_color, text_color)
+                custom_themes[theme_key] = (bg_color, accent_color)
                 print(f"Loaded custom theme: {name} ({theme_key})")
 
             except Exception as e:
@@ -127,7 +132,7 @@ def find_max_line_width(lines):
     return max(len(line) for line in lines) if lines else 0
 
 
-def generate_wallpaper(theme_name, bg_color, text_color, lines, output_dir):
+def generate_wallpaper(theme_name, bg_color, accent_color, lines, output_dir):
     """Generate a wallpaper for a specific theme."""
 
     # Create image with background color
@@ -158,7 +163,7 @@ def generate_wallpaper(theme_name, bg_color, text_color, lines, output_dir):
     start_y = (HEIGHT - text_block_height) // 2
 
     # Draw each line
-    text_rgb = hex_to_rgb(text_color)
+    text_rgb = hex_to_rgb(accent_color)
 
     for i, line in enumerate(lines):
         # Expand tabs to spaces (8-space tabs to match terminal default)
@@ -234,8 +239,8 @@ def main():
             sys.exit(1)
         themes_to_generate = [(args.theme, all_themes[args.theme])]
 
-    for theme_name, (bg_color, text_color) in themes_to_generate:
-        generate_wallpaper(theme_name, bg_color, text_color, lines, output_dir)
+    for theme_name, (bg_color, accent_color) in themes_to_generate:
+        generate_wallpaper(theme_name, bg_color, accent_color, lines, output_dir)
 
     print()
     print(f"Done! Generated {len(list(themes_to_generate))} wallpaper(s).")

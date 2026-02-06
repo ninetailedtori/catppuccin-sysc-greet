@@ -1,0 +1,14 @@
+name = "Catppuccin Frappé sapphire"
+
+[colors]
+bg_base         = "#303446"
+bg_active       = "#737994"
+primary         = "#c6d0f5"
+secondary       = "#a5adce"
+accent          = "#85c1dc"
+warning         = "#ef9f76"
+danger          = "#e78284"
+fg_primary      = "#303446"
+fg_secondary    = "#c6d0f5"
+fg_muted        = "#a5adce"
+border_focus    = "#ca9ee6"

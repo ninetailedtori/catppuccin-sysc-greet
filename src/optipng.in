@@ -1,0 +1,9 @@
+#!/bin/bash
+
+#
+# Simple script that helps parallelise optipng.
+#
+
+for file in wallpapers/*.png; do
+    printf 'optipng -o7 -zm1-9 -strip all -fix -preserve %q\n' "$file"
+done > optipng.in

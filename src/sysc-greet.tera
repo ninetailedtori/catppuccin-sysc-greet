@@ -4,7 +4,7 @@ whiskers:
   matrix:
     - flavor
     - accent
-  filename: themes/{{ flavor.identifier }}/{{ accent }}.toml
+  filename: themes/{{ flavor.identifier }}/catppuccin-{{ flavor.identifier }}-{{ accent }}.toml
   hex_format: "#{{r}}{{g}}{{b}}"
 ---
 name = "Catppuccin {{ flavor.name }} {{ accent }}"

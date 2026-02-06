@@ -1,0 +1,14 @@
+name = "Catppuccin Macchiato green"
+
+[colors]
+bg_base         = "#24273a"
+bg_active       = "#6e738d"
+primary         = "#cad3f5"
+secondary       = "#a5adcb"
+accent          = "#a6da95"
+warning         = "#f5a97f"
+danger          = "#ed8796"
+fg_primary      = "#24273a"
+fg_secondary    = "#cad3f5"
+fg_muted        = "#a5adcb"
+border_focus    = "#c6a0f6"

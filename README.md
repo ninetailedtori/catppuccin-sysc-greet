@@ -36,12 +36,22 @@
 
 ## Usage
 
-1. Copy the file at [`themes/<flavor>/<accent>`](themes/) to your
-   `/usr/share/sysc-greet/themes/` or `~/.config/sysc-greet/themes/` folder.
+1. Copy the file at [`themes/<flavor>/catppuccin-<flavor>-<accent>.toml`](themes/)
+   to your `/usr/share/sysc-greet/themes/` or `~/.config/sysc-greet/themes/`
+   folder.
 2. Copy the wallpapers to the `/usr/share/sysc-greet/wallpapers/` folder.
 3. Use `F1` -> `Themes` and select your theme.
 4. Use `F1` -> `Backgrounds` and select your wallpaper.
 5. Your selection is saved automatically to your config file!
+
+## FAQ
+
+- Q: Isn't there an upstream theme?
+- A: Yep! But:
+  - The upstream theme is a fixed Catppuccin Mocha - Mauve theme, and this
+    provides all flavours!
+  - Since this theme requires an accent, we've made a dedicated repo
+    for those of us who want to use different theme styles and accents!
 
 ## 💝 Thanks to
 

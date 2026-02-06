@@ -1,0 +1,14 @@
+name = "Catppuccin Latte red"
+
+[colors]
+bg_base         = "#eff1f5"
+bg_active       = "#9ca0b0"
+primary         = "#4c4f69"
+secondary       = "#6c6f85"
+accent          = "#d20f39"
+warning         = "#fe640b"
+danger          = "#d20f39"
+fg_primary      = "#eff1f5"
+fg_secondary    = "#4c4f69"
+fg_muted        = "#6c6f85"
+border_focus    = "#8839ef"

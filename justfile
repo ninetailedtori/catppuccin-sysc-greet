@@ -1,7 +1,7 @@
 _default:
     @just --list
 
-build-all: build-themes build-wallpapers
+build: build-themes build-wallpapers
 
 build-themes:
     whiskers src/sysc-greet.tera
@@ -10,23 +10,30 @@ build-wallpapers:
     whiskers src/generate-wallpapers.tera
     python3 src/generate-wallpapers.py
 
+package: package-themes package-wallpapers
+
+package-themes: compress-themes
+
+compress-themes:
+    tar -I 'xz -T0 -c -z --best -' -cf 'package/sysc-greet-themes-latte.tar.xz' 'themes/latte/'
+    tar -I 'xz -T0 -c -z --best -' -cf 'package/sysc-greet-themes-frappe.tar.xz' 'themes/frappe/'
+    tar -I 'xz -T0 -c -z --best -' -cf 'package/sysc-greet-themes-macchiato.tar.xz' 'themes/macchiato/'
+    tar -I 'xz -T0 -c -z --best -' -cf 'package/sysc-greet-themes-mocha.tar.xz' 'themes/mocha/'
+
+package-wallpapers: optimise organise-wallpapers compress-wallpapers
+
 optimise:
     bash src/optipng.in
 
 [working-directory: 'wallpapers/']
-move:
+organise-wallpapers:
     mv -t "latte/"      *latte*.png     || continue
     mv -t "frappe/"     *frapp*.png     || continue
     mv -t "macchiato/"  *macchiato*.png || continue
     mv -t "mocha/"      *mocha*.png     || continue
 
-[working-directory: 'wallpapers/']
-compress:
-    tar -I 'xz -T0 -c -z --best -' -cf 'sysc-greet-wallpapers-latte.tar.xz' 'latte/'
-    tar -I 'xz -T0 -c -z --best -' -cf 'sysc-greet-wallpapers-frappe.tar.xz' 'frappe/'
-    tar -I 'xz -T0 -c -z --best -' -cf 'sysc-greet-wallpapers-macchiato.tar.xz' 'macchiato/'
-    tar -I 'xz -T0 -c -z --best -' -cf 'sysc-greet-wallpapers-mocha.tar.xz' 'mocha/'
-
-[working-directory: 'wallpapers/']
-clean:
-    rm -rf 'latte/*' 'frappe/*' 'macchiato/*' 'mocha/*'
+compress-wallpapers:
+    tar -I 'xz -T0 -c -z --best -' -cf 'package/sysc-greet-wallpapers-latte.tar.xz' 'wallpapers/latte/'
+    tar -I 'xz -T0 -c -z --best -' -cf 'package/sysc-greet-wallpapers-frappe.tar.xz' 'wallpapers/frappe/'
+    tar -I 'xz -T0 -c -z --best -' -cf 'package/sysc-greet-wallpapers-macchiato.tar.xz' 'wallpapers/macchiato/'
+    tar -I 'xz -T0 -c -z --best -' -cf 'package/sysc-greet-wallpapers-mocha.tar.xz' 'wallpapers/mocha/'
